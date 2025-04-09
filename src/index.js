@@ -1,15 +1,17 @@
 import express from 'express'
 
+import 'dotenv/config'
+import { envs } from './configs/envs.js'
+
 const app = express()
-const PORT = process.env.PORT ?? 3000
 
 app.get("/", (req, res) => {
     res.send({
-        'message': 'Hello World!'
+        'message': 'Hello World! from new port'
     })
 })
 
-app.listen(PORT, () => {
-    console.log(`Server running on port: ${PORT}`)
+app.listen(envs.port, () => {
+    console.log(`Server running on port: ${envs.port}`)
 })
 
