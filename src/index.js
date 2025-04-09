@@ -1,15 +1,10 @@
-import express from 'express'
+//Server entry point
 
 import 'dotenv/config'
 import { envs } from './configs/envs.js'
 
-const app = express()
+import app from './app.js'
 
-app.get("/", (req, res) => {
-    res.send({
-        'message': 'Hello World! from new port'
-    })
-})
 
 app.listen(envs.port, () => {
     console.log(`Server running on port: ${envs.port}`)
